@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Responsive web design</title>
+
+		<meta name="description" content="CSS Methodologies & Frameworks - EPAM Mentoring Program 2016" />
+		<meta name="author" content="Anton Vernihor" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+
+		<link rel="stylesheet" href="css/theme/epam.css" id="theme">
+
+        <link rel="stylesheet" href="css/my.css" />
+
+        <!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/user.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<script src="https://use.fontawesome.com/145cbdb5c7.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section id="mainpage" data-state="mainpage" data-background="url(assets/i/lake_view.jpg)">
+                    <h1>Responsive web design</h1>
+                    <h3>Anton Vernihor</h3>
+					<time>19 May, 2017</time>
+				</section>
+
+				<section id="whatis" data-background-transition="fade">
+					<h2>What is RWD?</h2>
+				</section>
+
+                <section id="devices" data-state="devices" data-background="url(assets/i/rwd-devices.jpg)" data-background-size="cover" data-background-position="center"></section>
+
+                <section id="mouse">
+					<img src="assets/i/mouse.png" alt="">
+				</section>
+
+				<section id="hologram">
+					<img src="assets/i/hologram.jpg" alt="">
+				</section>
+
+				<section id="history">
+					<h2>History</h2>
+					<ul class="main-slide-list">
+						<li class="fragment">fixed width</li>
+						<li class="fragment">liquid layout</li>
+						<li class="fragment">separate mobile version</li>
+						<li class="fragment">responsive site</li>
+					</ul>
+				</section>
+
+				<section id="rwd-begin">
+					<h2>The book</h2>
+
+					<div class="book">
+						<img class="book-author-pic" src="assets/i/ethan.jpg" alt="">
+						<div class="book-author-main">
+							<h3 class="book-author-name">Ethan Marcotte</h3>
+							<a class="book-author-site" href="https://ethanmarcotte.com/">ethanmarcotte.com</a>
+							<h4 class="book-title">Responsive web design</h4>
+							<div class="book-year">2011, 2014</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="basic">
+					<h2>Basic principles</h2>
+					<ul class="main-slide-list">
+						<li class="fragment">Responsive grid</li>
+						<li class="fragment">Responsive images</li>
+						<li class="fragment">Media queries</li>
+					</ul>
+				</section>
+				<section id="other">
+					<h2>Other principles</h2>
+					<ul class="main-slide-list">
+						<li class="fragment">Graceful degradation / progressive enhancement</li>
+						<li class="fragment">Mobile first</li>
+					</ul>
+				</section>
+
+				<section id="fixed-layout" data-state="image">
+					<h2>Fixed layout</h2>
+					<img class="main-slide-image" src="assets/i/fixed.jpg" alt="">
+				</section>
+
+				<section id="fluid-layout" data-state="image">
+					<h2>Fluid layout</h2>
+					<img class="main-slide-image" src="assets/i/liquid.jpg" alt="">
+				</section>
+
+				<section id="float-markup">
+					<h2>Float-based layout markup</h2>
+					<pre><code class="xml">&lt;div class="page"&gt;
+	&lt;div class="main"&gt;
+		Main content 71.5%
+	&lt;/div&gt;
+	&lt;div class="aside"&gt;
+		Sidebar 22.5%
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</section>
+
+				<section id="float-styles">
+					<h2>Float-based layout styles</h2>
+					<pre><code>.page {
+	overflow: auto; /* better use clearfix */
+}
+
+.main {
+	float: right;
+	width: 71.5%;
+	margin: 0 2% 0 0;
+}
+
+.aside {
+	float: left;
+	width: 22.5%;
+	margin: 0 0 0 2%;
+}</code></pre>
+				</section>
+
+				<section id="float-layout">
+					<h2>Float-based layout</h2>
+					<img src="assets/i/float-layout.png" alt="">
+				</section>
+
+
+				<section id="inline-block-tiles-markup">
+					<h2>Inline block tiles markup</h2>
+					<pre><code class="xml">&lt;div class="container"&gt;
+	&lt;div class="tile"&gt;
+		&hellip;
+	&lt;/div&gt;&lt;div class="tile"&gt;
+		&hellip;
+	&lt;/div&gt;&lt;div class="tile"&gt;
+		&hellip;
+	&lt;/div&gt;&lt;div class="tile"&gt;
+		&hellip;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</section>
+
+				<section id="inline-block-tiles-markup">
+					<h2>Inline block styles</h2>
+					<pre><code>.container {
+	padding: 0 5px 10px;
+}
+
+.tile {
+	display: inline-block;
+	width: 150px;
+	min-height: 150px;
+	margin: 10px 5px 0;
+	vertical-align: top;
+}
+</code></pre>
+				</section>
+
+				<section id="inline-block-tiles-wide" data-state="responsive-result">
+					<h2>Inline block styles</h2>
+
+					<img src="assets/i/inline-block-1.png" alt="">
+				</section>
+
+				<section id="inline-block-tiles-narrow" data-state="responsive-result">
+					<h2>Inline block styles</h2>
+
+					<img src="assets/i/inline-block-2.png" alt="">
+				</section>
+
+				<section id="flexbox-basics-container">
+					<h2>Flexbox basics</h2>
+					<h3>Container</h3>
+					<ul>
+						<li class="fragment"><code>flex-direction</code></li>
+						<li class="fragment"><code>flex-wrap</code></li>
+						<li class="fragment"><code>justify-content</code></li>
+						<li class="fragment"><code>align-items</code></li>
+						<li class="fragment"><code>align-content</code></li>
+					</ul>
+				</section>
+
+				<section id="flexbox-basics-items">
+					<h2>Flexbox basics</h2>
+					<h3>Items</h3>
+					<ul>
+						<li class="fragment"><code>order</code></li>
+						<li class="fragment"><code>flex-grow</code></li>
+						<li class="fragment"><code>flex-shrink</code></li>
+						<li class="fragment"><code>flex-basis</code></li>
+						<li class="fragment"><code>align-self</code></li>
+					</ul>
+				</section>
+
+				<section id="flexbox-styling">
+					<h2>Flexbox example styles</h2>
+					<pre><code>html {
+	height: 100%;
+}
+body {
+	margin: 0;
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}</code></pre>
+				</section>
+
+				<section id="flexbox-centered-result">
+					<h2>Flexbox centered content</h2>
+
+					<img src="assets/i/centered.png" alt="">
+				</section>
+
+				<section id="flexbox-toolbar-markup">
+					<h2>Flexbox toolbar markup</h2>
+					<pre><code class="xml">&lt;div class="toolbar"&gt;
+	&lt;button&gt;1&lt;/button&gt;
+	&lt;button&gt;2&lt;/button&gt;
+	&lt;button&gt;3&lt;/button&gt;
+	&lt;button&gt;4&lt;/button&gt;
+
+	&lt;input type="text"&gt;
+&lt;/div&gt;</code></pre>
+				</section>
+
+				<section id="flexbox-toolbar-styles">
+					<h2>Flexbox toolbar styles</h2>
+					<pre><code>.toolbar {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.toolbar input {
+	margin-left: auto;
+}</code></pre>
+				</section>
+
+				<section id="flexbox-toolbar">
+					<h2>Flexbox toolbar</h2>
+
+					<img src="assets/i/toolbar.png" alt="">
+				</section>
+
+				<section id="css-grid">
+					<h2>CSS grid</h2>
+					<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">css-tricks.com/snippets/css/complete-guide-grid</a>
+
+					<img src="assets/i/grid-support.png" alt="">
+				</section>
+
+				<section id="css-grid-markup">
+					<h2>CSS grid markup</h2>
+					<pre><code class="xml">&lt;body&gt;
+	&lt;div class="header"&gt;
+		header
+	&lt;/div&gt;
+	&lt;div class="main"&gt;
+		content
+	&lt;/div&gt;
+	&lt;div class="sidebar"&gt;
+		sidebar
+	&lt;/div&gt;
+	&lt;div class="footer"&gt;
+		footer
+	&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+				</section>
+
+				<section id="css-grid-styles">
+					<h2>CSS Grid styles</h2>
+					<pre><code>html { height: 100%; }
+body {
+    margin: 0;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 70px auto 50px;
+    grid-template-areas:  "header header header header"
+                          "sidebar main main main"
+                          "footer footer footer footer";
+}
+.header { grid-area: header; }
+.main { grid-area: main; }
+.sidebar { grid-area: sidebar; }
+.footer { grid-area: footer; }</code></pre>
+				</section>
+
+				<section id="css-grid-example">
+					<img src="assets/i/grid-example.png" alt="">
+				</section>
+
+				<section id="css-grid-plus-flexbox">
+					<h2>CSS Grid + flexbox</h2>
+					<pre><code>.main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+				</section>
+
+				<section id="css-grid-flexbox">
+					<img src="assets/i/grid-flex.png" alt="">
+				</section>
+
+				<section id="responsive-images">
+					<h2>Responsive images</h2>
+				</section>
+
+				<section id="responsive-images-easy">
+					<h2>Responsive images easy way</h2>
+					<pre class="fragment"><code>img {
+    max-width: 100%;
+}</code></pre>
+				</section>
+
+				<section id="responsive-images-placeholder">
+					<h2>Responsive images with placeholder</h2>
+
+					<h3>css</h3>
+					<pre><code>.image { max-width: 100%; }
+.image__image { position: absolute;
+                top: 0; left: 0;
+                width: 100%; }</code></pre>
+
+					<h3>HTML</h3>
+					<pre><code class="xml">&lt;div class="image" style="width:500px"&gt;
+    &lt;div class="image__ratio" style="padding-top:50%"&gt;&lt;/div&gt;
+    &lt;img src="image.png" alt="" class="image__image"&gt;
+&lt;/div&gt;</code></pre>
+				</section>
+
+				<section id="img-tag-responsive">
+					<h2>IMG tag responsive</h2>
+					<pre><code class="xml">&lt;img
+    src="image/example.jpg"
+    srcset="image/example-portrait.jpg 350w, image/example_landscape.jpg 650w"
+    sizes="(max-width: 600px) 300px, (min-width: 600px) 600px"
+    alt=""&gt;</code></pre>
+					<p>We can't use percent in <code>sizes</code> attribute.</p>
+				</section>
+
+				<section id="picture-tag" data-state="picture-tag">
+					<h2>Picture tag</h2>
+					<pre><code class="xml">&lt;picture&gt;
+    &lt;source srcset="logo-wide.png" media="(min-width: 600px)"&gt;
+    &lt;img src="logo-narrow.png" alt=""&gt;
+&lt;/picture&gt;</code></pre>
+					<ul>
+						<li><code>type</code> — Type of embedded resource</li>
+						<li><code>srcset</code> — Images to use in different situations (e.g. high-resolution displays, small monitors, etc)</li>
+						<li><code>sizes</code> — Image sizes for different page layouts</li>
+						<li><code>media</code> — Applicable media</li>
+					</ul>
+				</section>
+
+				<section id="responsive-images-support">
+					<h2>Responsive images support</h2>
+					<p><a href="http://scottjehl.github.io/picturefill/">scottjehl.github.io/picturefill</a></p>
+				</section>
+
+				<section id="font-icons">
+					<h2>Font icons</h2>
+					<div class="fragment">
+						<a href="http://fontawesome.io/">fontawesome.io</a>
+						<p>Static CSS or source preprocessor files, CDN</p>
+					</div>
+					<div class="fragment">
+						<pre><code class="xml">&lt;link rel="stylesheet"
+	  href="path/to/font-awesome/css/font-awesome.min.css"&gt;
+&hellip;
+&lt;i class="fa fa-spinner fa-spin fa-3x"&gt;&lt;/i&gt;</code></pre>
+						<div><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></div>
+					</div>
+				</section>
+
+				<section id="svg">
+					<h2>SVG</h2>
+						<pre class="fragment"><code class="xml">&lt;img src="image.svg" alt=""&gt;</code></pre>
+						<pre class="fragment"><code class="css">background-image: url(image.svg);</code></pre>
+						<pre class="fragment"><code class="xml">&lt;object
+    type="image/svg+xml" data="image.svg"&gt;
+    &lt;img src="fallback.png"&gt;
+&lt;/object&gt;</code></pre>
+						<pre class="fragment"><code class="xml">&lt;svg width="50" height="25"&gt;&hellip;&lt;/svg&gt;</code></pre>
+				</section>
+
+				<section id="media-queries-section">
+					<h2>Media queries</h2>
+				</section>
+
+				<section id="media-detection">
+					<h2>Media detection</h2>
+					<pre><code class="xml">&lt;link rel="stylesheet" href="global.css" media="all"&gt;
+&lt;link rel="stylesheet" href="main.css" media="screen"&gt;
+&lt;link rel="stylesheet" href="paper.css" media="print"&gt</code></pre>
+					<pre><code>@media print {
+    body {
+        font-family: Times New Roman, serif;
+    }
+}</code></pre>
+					<pre><code>@import url("fineprint.css") print;</code></pre>
+				</section>
+
+				<section id="media-types">
+					<h2>Media types</h2>
+					<ul class="media">
+						<li>all</li>
+						<li>braille</li>
+						<li>embossed</li>
+						<li>handheld</li>
+						<li>print</li>
+						<li>projection</li>
+						<li>screen</li>
+						<li>speech</li>
+						<li>tty</li>
+						<li>tv</li>
+					</ul>
+				</section>
+
+				<section id="media-queries">
+					<h2>Media queries</h2>
+					<pre><code class="css">@media screen { ... }</code></pre>
+					<pre><code class="css">@media screen and max-width(720px) { ... }</code></pre>
+					<pre><code class="css">@media only screen and max-width(720px) { ... }</code></pre>
+				</section>
+
+				<section id="media-queries-features">
+					<h2>Features</h2>
+					<ul class="media">
+						<li>[min-|max-]width</li>
+						<li>[min-|max-]height</li>
+						<li>orientation</li>
+						<li>[min-|max-]aspect-ratio</li>
+						<li>[min-|max-]color</li>
+						<li>[min-|max-]color-index</li>
+						<li>[min-|max-]monochrome</li>
+						<li>[min-|max-]resolution</li>
+						<li>scan</li>
+						<li>grid</li>
+					</ul>
+				</section>
+
+				<section id="picture-example">
+					<h2>Choose image</h2>
+					<pre><code>body {
+    text-align: center;
+}
+picture img {
+    max-width: 100%;
+}</code></pre>
+					<pre><code class="xml">&lt;picture&gt;
+	&lt;source srcset="giraffe.jpg" media="(orientation: portrait)"&gt;
+	&lt;source srcset="dachshund.jpg" media="(orientation: landscape)"&gt;
+	&lt;img src="cat.jpg" alt=""&gt;
+&lt;/picture&gt;</code></pre>
+				</section>
+
+				<section id="picture-landscape">
+					<img src="assets/i/dog.png" alt="">
+				</section>
+
+				<section id="picture-portrait">
+					<img src="assets/i/giraffe.png" alt="">
+				</section>
+
+				<section id="switch-layout">
+					<h2>Switch layout</h2>
+					<pre><code class="xml">&lt;meta name="viewport"
+    content="width=device-width,
+    initial-scale=1"&gt;</code></pre>
+				</section>
+
+				<section id="switch-layout-narrow">
+					<img src="assets/i/narrow-layout.png" alt="">
+				</section>
+
+				<section id="switch-layout-wide">
+					<img src="assets/i/wide-layout.png" alt="">
+				</section>
+
+				<section id="best-practices">
+					<h2>Best practices</h2>
+					<ul>
+						<li class="fragment">Graceful degradation / progressive enhancement</li>
+						<li class="fragment">Mobile first</li>
+					</ul>
+				</section>
+
+                <section id="thank-you" data-state="thank-you">
+                    <h2>Thank you!</h2>
+
+                    <div class="author">
+                        <img class="author-avatar" src="assets/i/avatar.jpg" alt="">
+                        <div class="author-main">
+                            <h4 class="author-name">Anton Vernihor</h4>
+                            <div class="author-contacts">
+                                <div class="author-contacts__twitter"><a href="mailto:anton_vernihor@epam.com">anton_vernihor@epam.com</a></div>
+                                <div class="author-contacts__skype"><strong>Skype:</strong> ismmurf</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                transitionSpeed: 'fast',
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+        <script>
+            Reveal.configure({backgroundTransition: 'fade'});
+        </script>
+	</body>
+</html>

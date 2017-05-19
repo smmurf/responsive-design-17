@@ -1,0 +1,209 @@
+.reveal h2 {
+	font-size: 1.8em;
+}
+
+.reveal .main-slide-list {
+	font-size: 1.3em;
+}
+
+/* author */
+
+.reveal div.book,
+.reveal div.author {
+	width: 60%;
+	margin: 150px auto 0;
+	text-align: left;
+	}
+
+.reveal div img.book-author-pic,
+.reveal div img.author-avatar {
+	float: left;
+	width: 300px;
+	margin: 0 60px 0 0;
+	border: 0;
+	}
+
+.reveal div img.author-avatar {
+	border-radius: 50%;
+	}
+
+.reveal div.author-main {
+	padding-top: 80px;
+	}
+
+.reveal div.author-contacts {
+	margin-top: 40px;
+	}
+
+.reveal div .book-author-name {
+	margin-bottom: 0;
+}
+
+.reveal div .book-title {
+	margin-top: 20px;
+}
+
+.image .reveal .main-slide-image {
+	width: 70%;
+}
+
+.responsive-result .reveal img {
+	max-width: 600px;
+	max-height: 600px;
+}
+
+
+.picture-tag .reveal ul {
+	margin-top: 50px;
+}
+
+ul.media {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+ul.media li {
+	flex-basis: 30%;
+}
+
+/* html5 forms section */
+
+iframe.twitter-tweet {
+    width: 100% !important;
+}
+
+.reveal h1[data-number]:before,
+.reveal h2[data-number]:before {
+    content: attr(data-number)'.';
+    display: inline;
+    margin-right: 20px;
+    vertical-align: baseline;
+    font-size: .75em;
+    color: rgba(48,48,48,.75);
+    }
+
+.reveal .frameworks_good,
+.reveal .frameworks_good h3 {
+	text-align: center;
+	line-height: 1.25;
+	color: #a3c644;
+}
+
+.reveal .frameworks_bad,
+.reveal .frameworks_bad h3 {
+	text-align: center;
+	line-height: 1.25;
+	color: #b22746;
+}
+
+.reveal section li > img + h3 {
+	padding-top: 10px;
+}
+
+.reveal .topic-container {
+	height: 700px;
+	margin-top: 60px;
+}
+
+.reveal a:not(.image) {
+	color: #39c2d7;
+}
+
+.reveal .method-author {
+	margin-top: 100px;
+}
+
+.reveal .method-name {
+	margin-left: 20%;
+	text-align: left;
+	font-family: "Oswald Regular";
+	font-size: 4em;
+	line-height: 1.25;
+	font-weight: 400;
+}
+
+.reveal .method-author__avatar {
+	float: left;
+	height: 400px;
+	margin-right: 50px;
+}
+
+.reveal .first-letter {
+	color: #39c2d7;
+}
+
+.mainpage body .slide-background.present {
+	background-position: center !important;
+	background-size: cover !important;
+}
+
+body .slide-background {
+	background-repeat: no-repeat !important;
+}
+
+.after-bgsize-cover body .slide-background {
+	background-size: cover !important;
+}
+
+.mainpage .reveal section img {
+	position: absolute;
+	left: 0;
+	top: -100%;
+	background: transparent;
+	box-shadow:  none;
+}
+
+.mainpage body::before {
+	content: "";
+	position: absolute;
+	right: 5%;
+	top: 10%;
+	z-index: 1;
+	width: 288px;
+	height: 108px;
+	background: url(../assets/i/epam_logo_white.png) center no-repeat;
+	background-size: cover;
+}
+
+.mainpage time {
+	display: block;
+	position: relative;
+	top: 20%;
+	text-align: right;
+	font-size: .75em;
+}
+
+.mainpage .reveal section h1 {
+	margin-top: 100px;
+	font-size: 3em;
+	color: rgba(255,255,255,.95);
+	text-shadow: 0 2px 4px rgba(0,0,0,.5),
+				 0 -1px 3px rgba(0,0,0,.5);
+}
+
+.mainpage .reveal section h3 {
+	margin-top: 100px;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5),
+				 0 -1px 1px rgba(0,0,0,.5);
+}
+
+.mainpage .reveal section > * {
+	color: #fff;
+}
+
+.reveal ul li,
+.reveal ol li {
+	list-style: none !important;
+}
+
+.reveal .main-slide-list {
+	margin-top: 60px;
+	margin-left: 15%;
+}
+
+.reveal .fa {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+}
